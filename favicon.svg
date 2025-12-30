@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="LinkDrop LD">
+  <rect x="2" y="2" width="20" height="20" rx="6" fill="#10b981"/>
+
+  <!-- LD monoline lettermark (with generous padding) -->
+  <g fill="none" stroke="#ffffff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"
+     transform="translate(0.2 0) skewX(-9)">
+    <!-- L -->
+    <path d="M8.2 7.2V16.8"/>
+    <path d="M8.2 16.8H11.6"/>
+
+    <!-- D stem -->
+    <path d="M12.9 7.2V16.8"/>
+    <!-- D bowl (smooth, geometric) -->
+    <path d="M12.9 7.2h1.6c2.5 0 4.0 1.6 4.0 4.8s-1.5 4.8-4.0 4.8h-1.6"/>
+  </g>
+</svg>
