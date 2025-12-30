@@ -5,19 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LinkDrop · Send any tab to trusted contacts</title>
   <link rel="canonical" href="https://zluckyhou.github.io/linkdrop-site/" />
-  <meta name="theme-color" content="#0e9f6e" />
+  <meta name="theme-color" content="#10b981" />
   <link rel="stylesheet" href="./style.css" />
-  <meta name="description" content="LinkDrop is a Chrome extension that lets you drop the current page to paired contacts in one click, powered by Supabase Edge Functions." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://zluckyhou.github.io/linkdrop-site/" />
-  <meta property="og:title" content="LinkDrop · Send any tab to trusted contacts" />
-  <meta property="og:description" content="LinkDrop lets you shoot the current tab to trusted contacts with a short-lived pairing code, backed by Supabase Edge Functions." />
-  <meta property="og:image" content="https://zluckyhou.github.io/linkdrop-site/og-image.png" />
-  <meta property="og:site_name" content="LinkDrop" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LinkDrop · Send any tab to trusted contacts" />
-  <meta name="twitter:description" content="Chrome extension for fast, trusted link handoff with paired contacts." />
-  <meta name="twitter:image" content="https://zluckyhou.github.io/linkdrop-site/og-image.png" />
+  <meta name="description" content="LinkDrop is a Chrome extension that lets you drop the current page to paired contacts in one click." />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
 </head>
@@ -31,179 +21,173 @@
       <nav class="nav-links">
         <a href="#features">Features</a>
         <a href="#how">How it works</a>
-        <a href="#setup">Get started</a>
         <a href="#privacy">Privacy</a>
-        <a href="https://github.com/zluckyhou/linkdrop" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" class="btn primary small" style="padding: 8px 16px;">Add to Chrome</a>
       </nav>
     </header>
 
     <section class="hero">
       <div>
-        <span class="eyebrow">Chrome Extension · Supabase-powered</span>
-        <h1>Send any tab to trusted contacts in one click.</h1>
+        <span class="eyebrow">Chrome Extension v1.0</span>
+        <h1>Send any tab to trusted contacts instantly.</h1>
         <p class="lead">
-          LinkDrop pairs your devices (or teammates) with a 6-digit code, then lets you shoot the current page via the context menu or popup. Realtime when available, inbox polling as a fallback.
+          LinkDrop pairs your devices with a 6-digit code. No login required. Just right-click or use the popup to shoot the current page to your team.
         </p>
         <div class="cta-row">
-          <a class="btn primary" href="https://github.com/zluckyhou/linkdrop" target="_blank" rel="noopener">View on GitHub</a>
-          <a class="btn secondary" href="./privacy.html">Privacy policy</a>
+          <a class="btn primary btn-chrome" href="#">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            Add to Chrome
+          </a>
         </div>
       </div>
-      <div class="card accent floating">
-        <div class="mock-popup">
-          <h4>LinkDrop · Paired contacts</h4>
-          <div class="mock-row">
-            <div>
-              <strong>Send current tab</strong>
-              <div class="muted">Today · via context menu</div>
+      
+      <!-- Mockup mirroring the actual extension UI -->
+      <div class="mock-popup-container">
+        <div class="mock-app">
+          <!-- Header -->
+          <div class="ma-header">
+            <div class="ma-logo">LD</div>
+            <div class="ma-header-content">
+              <div class="ma-title">Current Page</div>
+              <div class="ma-current">LinkDrop - Home</div>
             </div>
-            <div class="dot" aria-hidden="true"></div>
-          </div>
-          <div class="mock-row">
-            <div>
-              <strong>Inbox</strong>
-              <div class="muted">Unread links sync automatically</div>
-            </div>
-            <div style="display: flex; gap: 4px;">
-              <span class="chip">Realtime</span>
-              <span class="chip" style="background: rgba(245, 158, 11, 0.12); color: #b45309;">Polling</span>
+            <div style="color: var(--primary);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </div>
           </div>
-          <div class="mock-row">
-            <div>
-              <strong>Pairing</strong>
-              <div class="muted">6-digit code · expires quickly</div>
+          
+          <!-- Status Bar -->
+          <div class="ma-status">
+            <div class="ma-dot"></div>
+            <span>Connected</span>
+          </div>
+
+          <!-- Main Content -->
+          <div class="ma-main">
+            <div style="margin-bottom: 12px; font-size: 13px; font-weight: 600; color: var(--text-secondary);">Send to</div>
+            <div class="ma-grid">
+              <!-- Contact 1 -->
+              <div class="ma-contact">
+                <div class="ma-avatar">👨🏻‍💻</div>
+                <div class="ma-name">MacBook</div>
+              </div>
+              <!-- Contact 2 -->
+              <div class="ma-contact">
+                <div class="ma-avatar">📱</div>
+                <div class="ma-name">iPhone</div>
+              </div>
+              <!-- Contact 3 -->
+              <div class="ma-contact">
+                <div class="ma-avatar" style="background: var(--bg-elevated); color: var(--text-muted);">+</div>
+                <div class="ma-name" style="color: var(--text-muted);">Add New</div>
+              </div>
             </div>
-            <span class="chip" style="background: rgba(14, 165, 233, 0.12); color: #0369a1;">Secure HMAC</span>
+          </div>
+
+          <!-- Navigation -->
+          <div class="ma-nav">
+            <div class="ma-nav-item active">
+              <div class="ma-nav-icon">📤</div>
+              <span>Send</span>
+            </div>
+            <div class="ma-nav-item">
+              <div class="ma-nav-icon">📥</div>
+              <span>Inbox</span>
+            </div>
+            <div class="ma-nav-item">
+              <div class="ma-nav-icon">⚙️</div>
+              <span>Settings</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <section id="features">
-      <div class="chip">Why LinkDrop</div>
-      <h2>Fast, deliberate link handoff for teams and devices.</h2>
+      <div class="section-header">
+        <span class="section-label">Features</span>
+        <h2>Simple, secure, and fast.</h2>
+      </div>
       <div class="feature-grid">
         <div class="feature">
-          <h3>One-click sending</h3>
-          <p>Right-click and pick a contact from the context menu, or use the popup to send the current tab title + URL instantly.</p>
+          <div class="feature-icon">🚀</div>
+          <h3>One-click Sending</h3>
+          <p>Instantly send the current tab's title and URL to any paired device. Works via the popup or right-click context menu.</p>
         </div>
         <div class="feature">
-          <h3>Pair with a 6-digit code</h3>
-          <p>Create or accept a short-lived code to add a contact. Rename or hide contacts locally to keep menus tidy.</p>
+          <div class="feature-icon">🔒</div>
+          <h3>Secure Pairing</h3>
+          <p>Connect devices using a short-lived 6-digit code. All requests are signed with HMAC for security.</p>
         </div>
         <div class="feature">
-          <h3>Inbox + notifications</h3>
-          <p>Background worker polls on a timer, raises system notifications, and lets you open or mark messages right away.</p>
+          <div class="feature-icon">📥</div>
+          <h3>Smart Inbox</h3>
+          <p>Received links appear in your inbox. Mark them as read or open them instantly. Syncs across devices.</p>
         </div>
         <div class="feature">
-          <h3>Verified payloads</h3>
-          <p>Every message carries an HMAC signature derived from the pair secret. Invalid payloads are ignored and logged.</p>
-        </div>
-        <div class="feature">
-          <h3>Resilient syncing</h3>
-          <p>Supabase Realtime pushes when enabled; inbox polling keeps you covered when clients are offline or the browser is closed.</p>
-        </div>
-        <div class="feature">
-          <h3>Local-first settings</h3>
-          <p>Device IDs, pair secrets, aliases, and inbox cache live in <code>chrome.storage.local</code>; there is no analytics layer.</p>
+          <div class="feature-icon">⚡️</div>
+          <h3>Realtime Sync</h3>
+          <p>Powered by Supabase Realtime for instant delivery. Falls back to smart polling if connection is lost.</p>
         </div>
       </div>
     </section>
 
     <section id="how">
-      <div class="chip">How it works</div>
-      <h2>From pairing to delivery, in seconds.</h2>
-      <div class="columns">
-        <div class="card">
-          <h3>1) Register quietly</h3>
-          <p class="muted">On first open, LinkDrop registers the device via Supabase Edge Functions and saves a device ID/secret locally.</p>
-          <div class="callout">Headers are signed with HMAC-SHA256 using the device secret for every API call.</div>
-        </div>
-        <div class="card">
-          <h3>2) Pair two sides</h3>
-          <p class="muted">Generate a 6-digit code and share it. Accepting the code exchanges pair secrets so both ends can trust each link.</p>
-          <ul class="clean">
-            <li>Contacts sync to the context menu and popup.</li>
-            <li>Aliases and hide/show flags stay on your machine.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>3) Drop the link</h3>
-          <p class="muted">Pick a contact and send. The recipient gets a notification; clicking opens the URL and records <code>opened_at</code>.</p>
-          <div class="mini-stat">
-            <div class="stat">
-              <strong>Realtime</strong>
-              <span>Supabase Realtime streams insert events.</span>
-            </div>
-            <div class="stat">
-              <strong>Fallback</strong>
-              <span>Alarm-driven polling every minute (configurable).</span>
-            </div>
-          </div>
-        </div>
+      <div class="section-header">
+        <span class="section-label">How it works</span>
+        <h2>From zero to sharing in seconds.</h2>
       </div>
-    </section>
-
-    <section id="setup">
-      <div class="chip">Get started</div>
-      <h2>Ready for GitHub Pages and manual installs.</h2>
       <div class="columns">
         <div class="card">
-          <h3>Configure your backend</h3>
+          <div class="step-num">01</div>
+          <h3>Install & Register</h3>
+          <p>Add the extension to Chrome. It quietly registers your device ID and secret locally—no account creation needed.</p>
+        </div>
+        <div class="card">
+          <div class="step-num">02</div>
+          <h3>Pair Devices</h3>
+          <p>Generate a code on one device and enter it on another. This exchanges secrets so they can "trust" each other.</p>
           <ul class="clean">
-            <li>Deploy Supabase Edge Functions from <code>supabase/functions</code> (<code>register_device</code>, <code>pair</code>, <code>link</code>, <code>inbox</code>, etc.).</li>
-            <li>Set <code>LINKDROP_SERVICE_ROLE_KEY</code> secret and run the included SQL schema.</li>
-            <li>Enable Realtime for <code>linkdrop_messages</code> and <code>linkdrop_pairs</code> if you want push delivery.</li>
+            <li>Codes expire in 5 minutes</li>
+            <li>One-time setup per pair</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Load the extension</h3>
-          <ul class="clean">
-            <li>Edit <code>src/config.js</code> to point <code>EDGE_BASE_URL</code> (and optional Realtime keys) at your Supabase project.</li>
-            <li>Chrome → Extensions → Developer mode → “Load unpacked” → choose the repository root.</li>
-            <li>Open the popup once to register your device automatically.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Everyday use</h3>
-          <ul class="clean">
-            <li>Use the context menu item “LinkDrop: Send Current Page” to pick recent contacts.</li>
-            <li>Manage contacts and inbox in the popup (rename, hide locally, mark read, delete cached items).</li>
-            <li>Notifications open links and report back with an <code>/message/opened</code> call.</li>
-          </ul>
+          <div class="step-num">03</div>
+          <h3>Drop Links</h3>
+          <p>Click the extension icon or right-click any page to send. The recipient gets a notification immediately.</p>
         </div>
       </div>
     </section>
 
     <section id="privacy">
-      <div class="chip">Privacy first</div>
-      <h2>Designed to keep link sharing minimal and auditable.</h2>
-      <div class="columns">
-        <div class="policy-card">
-          <h3>What’s stored locally</h3>
-          <p class="muted">Device credentials, pair secrets, aliases, and the inbox cache live in <code>chrome.storage.local</code>. You can clear cached messages anytime.</p>
-        </div>
-        <div class="policy-card">
-          <h3>What hits the backend</h3>
-          <p class="muted">Only what’s needed to deliver links: device IDs, pair metadata, message title + URL, and delivery timestamps. API calls are signed with HMAC headers.</p>
-        </div>
-        <div class="policy-card">
-          <h3>No analytics or ads</h3>
-          <p class="muted">LinkDrop runs without trackers. The only external service is your configured Supabase endpoint listed in the extension permissions.</p>
-        </div>
+      <div class="section-header">
+        <span class="section-label">Privacy First</span>
+        <h2>Your data stays yours.</h2>
       </div>
-      <div class="cta-row" style="margin-top: 22px;">
-        <a class="btn primary" href="./privacy.html">Read the full privacy policy</a>
-        <a class="btn secondary" href="https://github.com/zluckyhou/linkdrop" target="_blank" rel="noopener">See the source code</a>
+      <div class="columns">
+        <div class="card" style="background: transparent; border: none; padding-left: 0; box-shadow: none;">
+          <h3>Minimal Data</h3>
+          <p>We only store what's needed to deliver the link: title, URL, and timestamps. No browsing history is tracked.</p>
+        </div>
+        <div class="card" style="background: transparent; border: none; padding-left: 0; box-shadow: none;">
+          <h3>Local Storage</h3>
+          <p>Device secrets and keys live in your browser's local storage. You have full control to clear them anytime.</p>
+        </div>
       </div>
     </section>
 
     <footer>
-      <div>LinkDrop · Chrome extension for trusted link handoff.</div>
-      <div>
-        <a class="footer-link" href="https://github.com/zluckyhou/linkdrop" target="_blank" rel="noopener">GitHub</a> ·
-        <a class="footer-link" href="./privacy.html">Privacy policy</a>
+      <div class="brand" style="font-size: 1rem;">
+        <span class="brand-mark" style="width: 32px; height: 32px; font-size: 0.8rem;">LD</span>
+        <span>LinkDrop</span>
+      </div>
+      <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="./privacy.html">Privacy Policy</a>
       </div>
     </footer>
   </div>

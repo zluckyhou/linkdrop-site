@@ -3,23 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LinkDrop · Privacy Policy</title>
+  <title>Privacy Policy · LinkDrop</title>
   <link rel="canonical" href="https://zluckyhou.github.io/linkdrop-site/privacy.html" />
-  <meta name="theme-color" content="#0e9f6e" />
+  <meta name="theme-color" content="#10b981" />
   <link rel="stylesheet" href="./style.css" />
-  <meta name="description" content="Learn how LinkDrop handles device credentials, pair secrets, and link delivery data for your trusted contacts." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://zluckyhou.github.io/linkdrop-site/privacy.html" />
-  <meta property="og:title" content="LinkDrop · Privacy Policy" />
-  <meta property="og:description" content="LinkDrop is built to move only what is needed to deliver links between paired devices. No analytics or ads." />
-  <meta property="og:image" content="https://zluckyhou.github.io/linkdrop-site/og-image.png" />
-  <meta property="og:site_name" content="LinkDrop" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LinkDrop · Privacy Policy" />
-  <meta name="twitter:description" content="How LinkDrop stores data locally, what reaches your Supabase project, and your control over it." />
-  <meta name="twitter:image" content="https://zluckyhou.github.io/linkdrop-site/og-image.png" />
+  <meta name="description" content="Privacy Policy for LinkDrop Chrome Extension. Learn how we handle your data." />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+  <style>
+    /* Specific overrides for the privacy document style */
+    .policy-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+    
+    .policy-content {
+      background: var(--bg-card);
+      padding: 48px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .policy-content h2 {
+      margin-top: 2.5rem;
+      font-size: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .policy-content h3 {
+      margin-top: 1.5rem;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+    }
+
+    .policy-content p, .policy-content li {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .policy-content ul {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .policy-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .last-updated {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .policy-content {
+        padding: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="page">
@@ -30,149 +77,87 @@
       </div>
       <nav class="nav-links">
         <a href="./index.html">Home</a>
-        <a href="https://github.com/zluckyhou/linkdrop" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" class="btn primary small" style="padding: 8px 16px;">Add to Chrome</a>
       </nav>
     </header>
 
-    <section class="hero">
-      <div>
-        <span class="eyebrow">Privacy Policy</span>
-        <h1>How LinkDrop handles your data.</h1>
-        <p class="lead">LinkDrop is built to move the minimum data needed to deliver links between paired devices. No advertising, no analytics, and clear control over what is stored locally or remotely.</p>
-        <div class="cta-row">
-          <a class="btn primary" href="./index.html">Back to site</a>
-          <a class="btn secondary" href="https://github.com/zluckyhou/linkdrop" target="_blank" rel="noopener">Source code</a>
-        </div>
-      </div>
-      <div class="card accent floating">
-        <div class="mock-popup">
-          <h4>At a glance</h4>
-          <div class="mock-row">
-            <div>
-              <strong>Local-first</strong>
-              <div class="muted">Device + pair secrets stay in <code>chrome.storage.local</code>.</div>
-            </div>
-            <span class="chip">No analytics</span>
-          </div>
-          <div class="mock-row">
-            <div>
-              <strong>Scoped backend</strong>
-              <div class="muted">Only your Supabase endpoint is contacted.</div>
-            </div>
-            <span class="chip" style="background: rgba(245, 158, 11, 0.12); color: #b45309;">HMAC</span>
-          </div>
-          <div class="mock-row">
-            <div>
-              <strong>Clear controls</strong>
-              <div class="muted">Remove contacts, delete cached inbox, or uninstall anytime.</div>
-            </div>
-            <span class="chip" style="background: rgba(14, 165, 233, 0.12); color: #0369a1;">User choice</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="policy-container">
+      <h1 style="text-align: center; margin-bottom: 1rem;">Privacy Policy</h1>
+      <p class="last-updated" style="text-align: center;">Last Updated: December 30, 2025</p>
+      
+      <div class="policy-content">
+        <p>LinkDrop ("we", "our", or "the Extension") is designed with privacy as a core principle. This Privacy Policy explains what information is collected, how it is used, and the control you have over your data.</p>
 
-    <section>
-      <div class="chip">Data we process</div>
-      <div class="columns">
-        <div class="policy-card">
-          <h3>Local storage</h3>
-          <ul class="clean">
-            <li>Device credentials returned by <code>/register_device</code> (device ID and device secret).</li>
-            <li>Pair secrets, contact aliases, and “hidden” flags for the context menu.</li>
-            <li>Inbox cache (messages you have received, read status, opened timestamps).</li>
-          </ul>
-          <p class="muted">This data stays on your machine inside <code>chrome.storage.local</code>. Clearing the extension's storage or uninstalling removes it.</p>
-        </div>
-        <div class="policy-card">
-          <h3>Data sent to your Supabase project</h3>
-          <ul class="clean">
-            <li>Signed API requests carry the device ID, timestamp, and HMAC signature headers.</li>
-            <li>Pairing operations include short-lived pairing codes and generated pair IDs/secrets.</li>
-            <li>Messages include the title, URL, sender/recipient pair IDs, creation time, and optional opened time.</li>
-          </ul>
-          <p class="muted">LinkDrop talks only to the Supabase Edge Function host listed in the manifest (<code>host_permissions</code>). No third-party analytics or ad endpoints are contacted.</p>
-        </div>
-        <div class="policy-card">
-          <h3>What we do not collect</h3>
-          <ul class="clean">
-            <li>No browsing history beyond the specific tab you choose to send.</li>
-            <li>No usage analytics, tracking pixels, or advertising identifiers.</li>
-            <li>No passwords or account data from the pages you visit.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        <h2>1. Introduction</h2>
+        <p>LinkDrop is a Chrome extension that allows users to send the current tab's URL to their other paired devices or contacts. The extension operates on a "minimum data" philosophy: we only process the information strictly necessary to perform this function.</p>
 
-    <section>
-      <div class="chip">How data is used</div>
-      <div class="columns">
-        <div class="policy-card">
-          <h3>Delivery only</h3>
-          <p class="muted">Device credentials authenticate API calls. Pair metadata routes links to the right recipient. Message records are stored so the inbox can sync and notify you, and to mark messages as opened.</p>
-        </div>
-        <div class="policy-card">
-          <h3>Security</h3>
-          <ul class="clean">
-            <li>All API requests are signed with HMAC-SHA256 using the device secret.</li>
-            <li>Message payloads include an HMAC signature derived from the pair secret; invalid payloads are dropped.</li>
-            <li>Supabase Realtime (if enabled) uses your project’s anon key; there is no shared multi-tenant backend.</li>
-          </ul>
-        </div>
-        <div class="policy-card">
-          <h3>Retention</h3>
-          <p class="muted">Local data persists until you clear it or uninstall the extension. Data stored in your Supabase project remains until you remove it from your database; LinkDrop does not auto-expire messages by default.</p>
-        </div>
-      </div>
-    </section>
+        <h2>2. Information We Collect</h2>
+        <h3>2.1 Local Storage (On Your Device)</h3>
+        <p>The following data is stored locally in your browser (using <code>chrome.storage.local</code>) and is never sent to our servers unless required for a specific action:</p>
+        <ul>
+          <li><strong>Device Credentials:</strong> A unique Device ID and Device Secret generated upon installation.</li>
+          <li><strong>Pairing Secrets:</strong> Cryptographic keys exchanged when you pair with another device.</li>
+          <li><strong>Contact List:</strong> Aliases and IDs of devices you have paired with.</li>
+          <li><strong>Inbox Cache:</strong> A local copy of messages you have received and their read status.</li>
+        </ul>
 
-    <section>
-      <div class="chip">Permissions</div>
-      <div class="columns">
-        <div class="policy-card">
-          <h3>Chrome permissions used</h3>
-          <ul class="clean">
-            <li><strong>contextMenus</strong>: to add “Send current page” and contact shortcuts.</li>
-            <li><strong>tabs</strong>: to read the current tab title and URL when you choose to send.</li>
-            <li><strong>notifications</strong>: to show incoming link alerts you can click.</li>
-            <li><strong>storage</strong>: to store device credentials, pairs, aliases, and inbox cache locally.</li>
-            <li><strong>alarms</strong>: to schedule periodic inbox polling when realtime is unavailable.</li>
-          </ul>
-        </div>
-        <div class="policy-card">
-          <h3>Host permissions</h3>
-          <p class="muted">The extension calls only the Supabase Edge Functions host configured in <code>manifest.json</code> and <code>src/config.js</code>. Update these to point at your own project before publishing.</p>
-        </div>
-        <div class="policy-card">
-          <h3>Sharing</h3>
-          <p class="muted">LinkDrop does not sell or share data with third parties. Data flows only between the extension and your Supabase project to complete link delivery.</p>
-        </div>
-      </div>
-    </section>
+        <h3>2.2 Server-Side Data</h3>
+        <p>When you use the service, the following data is transmitted to and processed by our backend (hosted on Supabase):</p>
+        <ul>
+          <li><strong>Device Registration:</strong> Your Device ID and public key information.</li>
+          <li><strong>Message Metadata:</strong> When sending a link, we process the Title and URL of the page you are sharing, along with timestamps.</li>
+          <li><strong>Delivery Logs:</strong> Transient records needed to route the message to the recipient.</li>
+        </ul>
 
-    <section>
-      <div class="chip">Your controls</div>
-      <div class="columns">
-        <div class="policy-card">
-          <h3>Manage contacts & cache</h3>
-          <p class="muted">Remove contacts from the popup to revoke them. Delete messages from the inbox or mark all as read. Hidden contacts remain local only.</p>
-        </div>
-        <div class="policy-card">
-          <h3>Clear local data</h3>
-          <p class="muted">Use the “Clear cache” action in the extension or remove/uninstall the extension to erase local storage. To remove server-side data, delete records from your Supabase database.</p>
-        </div>
-        <div class="policy-card">
-          <h3>Changes</h3>
-          <p class="muted">Updates to this policy will be versioned in the repository. Review release notes when upgrading.</p>
-        </div>
+        <h2>3. How We Use Your Information</h2>
+        <p>We use the collected information solely for the purpose of providing the LinkDrop service:</p>
+        <ul>
+          <li><strong>Authentication:</strong> Device credentials are used to sign API requests (HMAC-SHA256), ensuring only you can access your inbox.</li>
+          <li><strong>Delivery:</strong> The URL and Title are used to construct the message delivered to the recipient device.</li>
+          <li><strong>Notification:</strong> To trigger system notifications when a new link arrives.</li>
+        </ul>
+        <p><strong>We do not:</strong></p>
+        <ul>
+          <li>Track your browsing history.</li>
+          <li>Collect personal information like names, emails, or phone numbers.</li>
+          <li>Sell or share your data with third parties or advertisers.</li>
+          <li>Access page content beyond the URL and Title of the specific tab you choose to send.</li>
+        </ul>
+
+        <h2>4. Data Retention</h2>
+        <ul>
+          <li><strong>Local Data:</strong> Persists on your device until you uninstall the extension or use the "Clear Cache" feature.</li>
+          <li><strong>Server Data:</strong> Message data is retained in the database to allow for asynchronous delivery (e.g., if the recipient is offline). You can manage or delete this data by deleting the extension or requesting data deletion if you host your own backend.</li>
+        </ul>
+
+        <h2>5. Chrome Permissions</h2>
+        <p>The extension requests the following permissions for specific functions:</p>
+        <ul>
+          <li><code>contextMenus</code>: To add the "Send to..." option in your right-click menu.</li>
+          <li><code>tabs</code>: To read the URL and Title of the <strong>active tab only</strong> when you explicitly trigger a send action.</li>
+          <li><code>notifications</code>: To show you alerts when you receive a link.</li>
+          <li><code>storage</code>: To save your settings and credentials locally.</li>
+          <li><code>alarms</code>: To periodically check for new messages in the background.</li>
+        </ul>
+
+        <h2>6. Your Rights and Choices</h2>
+        <p>You have full control over your data:</p>
+        <ul>
+          <li><strong>Revoke Access:</strong> You can remove a paired contact at any time from the extension popup.</li>
+          <li><strong>Uninstall:</strong> Uninstalling the extension immediately removes all local data.</li>
+        </ul>
+
+
       </div>
-    </section>
+    </div>
 
     <footer>
-      <div>LinkDrop · Privacy policy</div>
-      <div>
-        <a class="footer-link" href="./index.html">Home</a> ·
-        <a class="footer-link" href="https://github.com/zluckyhou/linkdrop" target="_blank" rel="noopener">GitHub</a>
+      <div class="brand" style="font-size: 1rem;">
+        <span class="brand-mark" style="width: 32px; height: 32px; font-size: 0.8rem;">LD</span>
+        <span>LinkDrop</span>
+      </div>
+      <div class="footer-links">
+        <a href="./index.html">Home</a>
       </div>
     </footer>
   </div>
