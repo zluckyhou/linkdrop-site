@@ -138,17 +138,13 @@ header {
 }
 
 .brand-mark {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
-  color: white;
   border-radius: var(--radius-sm); /* Matching extension icon shape */
-  font-size: 1rem;
-  font-weight: 800;
-  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.18);
+  overflow: hidden;
+  vertical-align: middle;
 }
 
 .nav-links {
