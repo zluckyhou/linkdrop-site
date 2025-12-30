@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinkDrop · Privacy Policy</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <span class="brand-mark">LD</span>
+        <span>LinkDrop</span>
+      </div>
+      <nav class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="https://github.com/zluckyhou/linkdrop" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Privacy Policy</span>
+        <h1>How LinkDrop handles your data.</h1>
+        <p class="lead">LinkDrop is built to move the minimum data needed to deliver links between paired devices. No advertising, no analytics, and clear control over what is stored locally or remotely.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="./index.html">Back to site</a>
+          <a class="btn secondary" href="https://github.com/zluckyhou/linkdrop" target="_blank" rel="noopener">Source code</a>
+        </div>
+      </div>
+      <div class="card accent floating">
+        <div class="mock-popup">
+          <h4>At a glance</h4>
+          <div class="mock-row">
+            <div>
+              <strong>Local-first</strong>
+              <div class="muted">Device + pair secrets stay in <code>chrome.storage.local</code>.</div>
+            </div>
+            <span class="chip">No analytics</span>
+          </div>
+          <div class="mock-row">
+            <div>
+              <strong>Scoped backend</strong>
+              <div class="muted">Only your Supabase endpoint is contacted.</div>
+            </div>
+            <span class="chip" style="background: rgba(245, 158, 11, 0.12); color: #b45309;">HMAC</span>
+          </div>
+          <div class="mock-row">
+            <div>
+              <strong>Clear controls</strong>
+              <div class="muted">Remove contacts, delete cached inbox, or uninstall anytime.</div>
+            </div>
+            <span class="chip" style="background: rgba(14, 165, 233, 0.12); color: #0369a1;">User choice</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="chip">Data we process</div>
+      <div class="columns">
+        <div class="policy-card">
+          <h3>Local storage</h3>
+          <ul class="clean">
+            <li>Device credentials returned by <code>/register_device</code> (device ID and device secret).</li>
+            <li>Pair secrets, contact aliases, and “hidden” flags for the context menu.</li>
+            <li>Inbox cache (messages you have received, read status, opened timestamps).</li>
+          </ul>
+          <p class="muted">This data stays on your machine inside <code>chrome.storage.local</code>. Clearing the extension's storage or uninstalling removes it.</p>
+        </div>
+        <div class="policy-card">
+          <h3>Data sent to your Supabase project</h3>
+          <ul class="clean">
+            <li>Signed API requests carry the device ID, timestamp, and HMAC signature headers.</li>
+            <li>Pairing operations include short-lived pairing codes and generated pair IDs/secrets.</li>
+            <li>Messages include the title, URL, sender/recipient pair IDs, creation time, and optional opened time.</li>
+          </ul>
+          <p class="muted">LinkDrop talks only to the Supabase Edge Function host listed in the manifest (<code>host_permissions</code>). No third-party analytics or ad endpoints are contacted.</p>
+        </div>
+        <div class="policy-card">
+          <h3>What we do not collect</h3>
+          <ul class="clean">
+            <li>No browsing history beyond the specific tab you choose to send.</li>
+            <li>No usage analytics, tracking pixels, or advertising identifiers.</li>
+            <li>No passwords or account data from the pages you visit.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="chip">How data is used</div>
+      <div class="columns">
+        <div class="policy-card">
+          <h3>Delivery only</h3>
+          <p class="muted">Device credentials authenticate API calls. Pair metadata routes links to the right recipient. Message records are stored so the inbox can sync and notify you, and to mark messages as opened.</p>
+        </div>
+        <div class="policy-card">
+          <h3>Security</h3>
+          <ul class="clean">
+            <li>All API requests are signed with HMAC-SHA256 using the device secret.</li>
+            <li>Message payloads include an HMAC signature derived from the pair secret; invalid payloads are dropped.</li>
+            <li>Supabase Realtime (if enabled) uses your project’s anon key; there is no shared multi-tenant backend.</li>
+          </ul>
+        </div>
+        <div class="policy-card">
+          <h3>Retention</h3>
+          <p class="muted">Local data persists until you clear it or uninstall the extension. Data stored in your Supabase project remains until you remove it from your database; LinkDrop does not auto-expire messages by default.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="chip">Permissions</div>
+      <div class="columns">
+        <div class="policy-card">
+          <h3>Chrome permissions used</h3>
+          <ul class="clean">
+            <li><strong>contextMenus</strong>: to add “Send current page” and contact shortcuts.</li>
+            <li><strong>tabs</strong>: to read the current tab title and URL when you choose to send.</li>
+            <li><strong>notifications</strong>: to show incoming link alerts you can click.</li>
+            <li><strong>storage</strong>: to store device credentials, pairs, aliases, and inbox cache locally.</li>
+            <li><strong>alarms</strong>: to schedule periodic inbox polling when realtime is unavailable.</li>
+          </ul>
+        </div>
+        <div class="policy-card">
+          <h3>Host permissions</h3>
+          <p class="muted">The extension calls only the Supabase Edge Functions host configured in <code>manifest.json</code> and <code>src/config.js</code>. Update these to point at your own project before publishing.</p>
+        </div>
+        <div class="policy-card">
+          <h3>Sharing</h3>
+          <p class="muted">LinkDrop does not sell or share data with third parties. Data flows only between the extension and your Supabase project to complete link delivery.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="chip">Your controls</div>
+      <div class="columns">
+        <div class="policy-card">
+          <h3>Manage contacts & cache</h3>
+          <p class="muted">Remove contacts from the popup to revoke them. Delete messages from the inbox or mark all as read. Hidden contacts remain local only.</p>
+        </div>
+        <div class="policy-card">
+          <h3>Clear local data</h3>
+          <p class="muted">Use the “Clear cache” action in the extension or remove/uninstall the extension to erase local storage. To remove server-side data, delete records from your Supabase database.</p>
+        </div>
+        <div class="policy-card">
+          <h3>Changes</h3>
+          <p class="muted">Updates to this policy will be versioned in the repository. Review release notes when upgrading.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>LinkDrop · Privacy policy</div>
+      <div>
+        <a class="footer-link" href="./index.html">Home</a> ·
+        <a class="footer-link" href="https://github.com/zluckyhou/linkdrop" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
